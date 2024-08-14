@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #202020;
+    color: white;
+    margin: 0;
+    height: 100vh; /* 让body占满整个视窗高度 */
+    display: flex;
+    flex-direction: column; /* 让内容垂直排列 */
+    align-items: center; /* 水平居中 */
+    justify-content: center; /* 垂直居中 */
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center; /* 水平居中 */
+}
+
+#calendar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 每月之间的间距 */
+    /* max-width: 600px; */
+}
+
+.month-row {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* 每天之间的间距 */
+}
+
+.day {
+    padding: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #209c3d; /* 默认正常情况 */
+    width: 40px; /* 保证方形 */
+    height: 40px; /* 保证方形 */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; /* 调整字体大小以适应方块尺寸 */
+    position: relative; /* 为了定位event-info */
+}
+
+.day.outage.power {
+    background-color: #ffdd00; /* 停电 */
+}
+
+.day.outage.water {
+    background-color: #005498; /* 停水 */
+}
+
+.day.outage.important {
+    background-color: #ae0000; /* 多发事件 */
+}
+
+.day:hover .event-info {
+    display: block;
+}
+
+.event-info {
+    font-size: 10;
+    display: none;
+    position: absolute;
+    top: 30px; /* 显示在光标右下方 */
+    left: 100%;
+    transform: translateX(-50%);
+    background-color: #171717;
+    color: #9f9f9f;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    white-space: normal; /* 允许自动换行 */
+    width: 400px;
+}
+
+
+.month-label {
+    margin-right: 10px;
+    font-weight: bold;
+    width: 40px; /* 固定宽度以保证右对齐 */
+    text-align: right; /* 右对齐 */
+}
+
+#footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #9f9f9f;
+    line-height: 8px; /* 设置行间距为8px */
+}
+
+#footer a {
+    color: #9f9f9f;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+/* 用于表示 range 第一个字的小圆圈样式 */
+.range-circle {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: orange;
+    color: white;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1; /* 增加z-index以确保显示在上层 */
+}
+

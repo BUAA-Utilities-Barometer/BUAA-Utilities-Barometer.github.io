@@ -82,11 +82,14 @@ h1 {
     z-index: 10;
     white-space: normal;
     width: 400px;
+    left: 0;  /* 初始化为0, 具体位置由JS控制 */
+    top: 0;   /* 初始化为0, 具体位置由JS控制 */
 }
 
 .day-container:hover .event-info {
     display: block; /* 使得信息框在悬浮时显示 */
 }
+
 
 .range-circle {
     position: absolute;
@@ -102,8 +105,9 @@ h1 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    z-index: 1; /* 增加z-index以确保显示在上层 */
+    z-index: 1; /* 确保显示在上层 */
 }
+
 
 .range-short {
     display: block; /* 默认显示 */
